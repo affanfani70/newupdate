@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Navbar</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="container">
+            <div class="logo">myNews Updates</div>
+            <ul class="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <form action="/" method="post" class="search-form">
+                <input type="text" class="search-input" name="inpTxt" placeholder="Search...">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+    </div>
+    <!-- Your content goes here -->
+
+    <div class="card">
+        <% News.forEach(function(element) {%>
+            <div class="news-card">
+                <img class="news-image" src="<%= element.urlToImage %>" alt="News Image">
+                <h2 class="news-title">
+                    <%= element.title %>
+                </h2>
+                <p class="news-description">
+                    <%= element.description %>
+                </p>
+                <p class="news-publisher">Publisher: <%= element.source.name %>
+                </p>
+                <p class="news-publish-time">Published At: <%= element.publishedAt %>
+                </p>
+                <button class="read-more-button"><a href="<%= element.url %> " target="_blank">Read more</a></button>
+            </div>
+
+            <%}); %>
+    </div>
+</body>
+
+</html>
